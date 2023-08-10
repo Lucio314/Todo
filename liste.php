@@ -6,7 +6,7 @@
     $req->execute();
 
     while ($row = $req->fetch()) {
-        if ($row['status'] === 'En cours') {
+        if ($row['status'] === 'In progress') {
             echo " <br/>
             <center>
             <form method='POST' action=index.php?val=trait>
@@ -28,9 +28,9 @@
                     <br>
                     <div class='button-task'>     
                     <center>
-                        <button name='action' class='btn-update' value='update'>Updated</button>
-                        <button name='action' class='btn-delete' value='delete'>Deleted</button>
-                        <button name='action' class='btn-finish' value='finish'>Finished</button>
+                        <button name='action' class='btn-update' value='update'>Update</button>
+                        <button name='action' class='btn-delete' value='delete'>Delete</button>
+                        <button name='action' class='btn-finish' value='finish'>Finish</button>
                     <center/>
                     </div>
                 </div>

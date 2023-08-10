@@ -56,6 +56,16 @@ a:hover {
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
+/* le texte de accueil*/
+.home {
+    color: aliceblue;
+    padding: 10px;
+    /* border: solid rgb(255, 255, 255) 1px; */
+    border-radius: 5px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    flex-flow: column wrap;
+}
+
 /* le titre du formulaire*/
 .form-title {
     text-align: center;
