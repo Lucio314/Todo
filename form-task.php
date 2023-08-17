@@ -1,13 +1,20 @@
 <?php
+session_start();
+if (!isset($_SESSION['user'])) {
+    header("Location: index.php?val=home");
+    exit;
+}
+
+$user = $_SESSION['user'];
 require('connexion.php');
 if (isset($_REQUEST['mon_id'])) {
-    $query = 'SELECT id FROM taches';
+    $query = 'SELECT `id_task` FROM tasks';
     $req = $connexion->prepare($query);
     $req->execute();
     while ($list_id = $req->fetch()) {
-        if ($_REQUEST['mon_id'] == $list_id['id']) {
+        if ($_REQUEST['mon_id'] == $list_id['id_task']) {
             $mon_id = $_REQUEST['mon_id'];
-            $sql = sprintf("SELECT * FROM taches WHERE id =%d", $mon_id);
+            $sql = sprintf("SELECT * FROM tasks WHERE `id_task`=%d", $mon_id);
             $req = $connexion->prepare($sql);
             $req->execute();
             $row = $req->fetch();
@@ -15,7 +22,9 @@ if (isset($_REQUEST['mon_id'])) {
     }
 }
 ?>
+
 <center>
+    <h1> <?php echo 'Bienvenue  ' . $user['username'] . $user['id_user']; ?> !</h1>
     <div class='container'>
         <h2 class='form-title'>Add Task</h2>
         <div class='line'></div>
@@ -37,7 +46,8 @@ if (isset($_REQUEST['mon_id'])) {
                 </div>
                 <center>
                     <div>
-                        <input type='submit' name='save-tache' value='<?php $a =  (isset($row)) ?  'Updated' : 'Register'; echo $a ?>' required id='submits'>
+                        <input type='submit' name='save-tache' value='<?php $a =  (isset($row)) ?  'Updated' : 'Register';
+                                                                        echo $a ?>' required id='submits'>
                     </div>
                 </center>
             </div>

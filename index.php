@@ -11,6 +11,9 @@
 <body>
     <?php include "header.php"; ?>
     <?php include "contenu.php"; ?>
+    <footer>
+        <a href="logout.php">Se déconnecter</a>
+    </footer>
 </body>
 
 </html>

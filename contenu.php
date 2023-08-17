@@ -12,6 +12,15 @@ if (!isset($_REQUEST['val'])) {
         case 'task':
             include "form-task.php";
             break;
+        case 'login':
+            include "login.php";
+            break;
+        case 'signin':
+            include "signin.php";
+            break;
+        case 'home':
+            include "accueil.php";
+            break;
         default:
             include "accueil.php";
     }

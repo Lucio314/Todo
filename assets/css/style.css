@@ -1,7 +1,7 @@
 body {
     background-size: cover;
     font-size: 20px;
-    background-image: url(../img/cambg_1.jpg);
+    background-image: url(../img/cambg_7.jpg);
 
 }
 
@@ -58,10 +58,8 @@ a:hover {
 
 /* le texte de accueil*/
 .home {
-    color: aliceblue;
+    color: black;
     padding: 10px;
-    /* border: solid rgb(255, 255, 255) 1px; */
-    border-radius: 5px;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     flex-flow: column wrap;
 }
@@ -100,7 +98,8 @@ a:hover {
 
 /*la forme des in puts du titre et de la date*/
 input[type='text'],
-input[type='date'] {
+input[type='date'],
+input[type='password'] {
     border-radius: 06px;
     height: 25px;
     font-size: 20px;

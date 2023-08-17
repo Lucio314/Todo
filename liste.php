@@ -1,20 +1,32 @@
 <div class="tasks">
     <?php
+    session_start();
     require "connexion.php";
-    $sql = ("SELECT * FROM taches");
-    $req = $connexion->prepare($sql);
-    $req->execute();
+    if (!isset($_SESSION['user'])) {
+        header("Location: index.php?val=home");
+        exit;
+    }
 
+    $user = $_SESSION['user'];
+    
+    $sql = "SELECT * FROM users WHERE username = ? ";
+    $req = $connexion->prepare($sql);
+    $req->execute([$user['username']]);
+    $result = $req->fetch();
+
+    $sql = "SELECT  * FROM tasks WHERE id_user = ?";
+    $req = $connexion->prepare($sql);
+    $req->execute([$result['id_user']]);
     while ($row = $req->fetch()) {
         if ($row['status'] === 'In progress') {
             echo " <br/>
             <center>
             <form method='POST' action=index.php?val=trait>
             <input type='hidden' name='status' value=" . $row['status'] . ">
-            <input type='hidden' name='mon_id' value=" . $row['id'] . ">
+            <input type='hidden' name='mon_id' value=" . $row['id_task'] . ">
                  <div class='form-task'>
-                    <div class='id-task'>
-                    <h2>Task N° " . $row['id'] . " </h2> <h3 style='color:gold;'> " . $row['status'] . " </h3> </div>
+                    <div class='id_task'>
+                    <h2>Task N° " . $row['id_task'] . " </h2> <h3 style='color:gold;'> " . $row['status'] . " </h3> </div>
                     <div class='line'></div>
                     <div class='desc-task'>
                         <h3>Description: </h3>
@@ -40,10 +52,10 @@
             <center>
             <form method='POST' action=index.php?val=trait>
             <input type='hidden' name='status' value=" . $row['status'] . ">
-            <input type='hidden' name='mon_id' value=" . $row['id'] . ">
+            <input type='hidden' name='mon_id' value=" . $row['id_task'] . ">
                  <div class='form-task'>
-                    <div class='id-task'>
-                    <h2>Task N° " . $row['id'] . " </h2> <h3 style='color:green;'> " . $row['status'] . " </h3> </div>
+                    <div class='id_task'>
+                    <h2>Task N° " . $row['id_task'] . " </h2> <h3 style='color:green;'> " . $row['status'] . " </h3> </div>
                     <div class='line'></div>
                     <div class='desc-task'>
                         <h3>Description: </h3>
