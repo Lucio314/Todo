@@ -1,7 +1,7 @@
 body {
     background-size: cover;
     font-size: 20px;
-    background-image: url(../img/cambg_7.jpg);
+    background-image: url(../img/cambg_1.jpg);
 
 }
 
@@ -43,7 +43,7 @@ a:hover {
 
 /* la forme du formulaire*/
 .container {
-    color: aliceblue;
+    color: rgb(255, 255, 255);
     /* box-shadow: 15px; */
     border: solid black 1px;
     border-radius: 15px;
@@ -138,8 +138,7 @@ input[type='submit']:hover {
 }
 
 .form-task {
-    color: aliceblue;
-
+    color: rgb(255, 255, 255);
     border: solid black 2px;
     border-radius: 15px;
     padding: 10px;
@@ -153,6 +152,7 @@ input[type='submit']:hover {
 
 .desc-task p {
     flex-wrap: wrap;
+    color: #ffffffff;
 }
 
 .status-task strong {

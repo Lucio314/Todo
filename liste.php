@@ -26,7 +26,7 @@
             <input type='hidden' name='mon_id' value=" . $row['id_task'] . ">
                  <div class='form-task'>
                     <div class='id_task'>
-                    <h2>Task N° " . $row['id_task'] . " </h2> <h3 style='color:gold;'> " . $row['status'] . " </h3> </div>
+                    <h2>Task : " . $row['title'] . " </h2> <h3 style='color:gold;'> " . $row['status'] . " </h3> </div>
                     <div class='line'></div>
                     <div class='desc-task'>
                         <h3>Description: </h3>
@@ -55,7 +55,7 @@
             <input type='hidden' name='mon_id' value=" . $row['id_task'] . ">
                  <div class='form-task'>
                     <div class='id_task'>
-                    <h2>Task N° " . $row['id_task'] . " </h2> <h3 style='color:green;'> " . $row['status'] . " </h3> </div>
+                    <h2>Task : " . $row['title'] . " </h2> <h3 style='color:green;'> " . $row['status'] . " </h3> </div>
                     <div class='line'></div>
                     <div class='desc-task'>
                         <h3>Description: </h3>

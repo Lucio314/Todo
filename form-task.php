@@ -30,7 +30,7 @@ if (isset($_REQUEST['mon_id'])) {
         <div class='line'></div>
         <form action='index.php?val=trait' method='POST'>
             <div class='form-components'>
-                <input type='hidden' name='id' id='id' value=' <?php if (isset($row)) echo $row['id']; ?> '>
+                <input type='hidden' name='id_task' id='id_task' value=' <?php if (isset($row)) echo $row['id_task']; ?> '>
                 <div class='component'>
                     <label for='title'>Title:</label>
                     <input type='text' name='title' id='title' value='<?php if (isset($row)) echo $row['title']; ?>'>
@@ -53,4 +53,4 @@ if (isset($_REQUEST['mon_id'])) {
             </div>
         </form>
     </div>
-</center>";
+</center>"

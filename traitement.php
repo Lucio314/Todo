@@ -27,7 +27,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit; // Terminer le script ici
             } elseif ($action === 'Updated') {
                 // Récupération des données du formulaire
-                $id = $_POST['id'] ?? 0;
+                $id = $_POST['id_task'] ?? 0;
                 $title = $_POST['title'] ?? "";
                 $description = $_POST['description'] ?? "";
                 $dates = $_POST['dates'] ?? "";
@@ -61,7 +61,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                 exit; // Terminer le script ici
             } elseif ($action === 'finish') {
                 $d = new DateTime();
-                $today = $d->format('l d M Y H:i');
+                $today = $d->format(' d M Y H:i');
                 $fin = "Completed (" . $today . ")";
 
                 $sql = "UPDATE tasks SET status=? WHERE `id_task`=?";
@@ -82,7 +82,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $req = $connexion->prepare($sql);
         $req->execute([$username]);
         $user = $req->fetch();
-
         if (!empty($user)) {
             header('Refresh:1; URL=index.php?val=signin');
             echo "username already exist!";
@@ -107,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $result = $connexion->prepare($query);
         $result->execute();
         $user = $result->fetch();
-        var_dump($user);
+       
         if ($user && password_verify($password, $user['password'])) {
             $_SESSION['user'] = $user;
             header("Location: index.php?val=home");
